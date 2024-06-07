@@ -1,4 +1,4 @@
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
 
 const App = () => {
   const data = useLoaderData();
