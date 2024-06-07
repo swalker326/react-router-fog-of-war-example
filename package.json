@@ -1,0 +1,12 @@
+{
+  "name": "rsbuild-module-federation-live-reload-bug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -r dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
