@@ -1,22 +1,30 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { routes } from "remote/routes";
+import { Layout } from "./Layout";
 
 const router = createBrowserRouter(
   [
     {
+      id: "root",
       path: "/",
-      element: <App />
+      Component: () => <Layout />,
+      children: [
+        {
+          index: true,
+          element: <App />
+        }
+      ]
     }
   ],
   {
     future: {
       v7_normalizeFormMethod: true
     },
-    unstable_patchRoutesOnMiss(path, matches, patch) {
-      patch(null, routes);
+    unstable_patchRoutesOnMiss(_path, _matches, patch) {
+      patch("root", routes);
     }
   }
 );
