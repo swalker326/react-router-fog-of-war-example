@@ -12,7 +12,6 @@ export default defineConfig({
       name: "remote",
       filename: "remoteEntry.js",
       exposes: {
-        "./MicroFrontend": "./src/App",
         "./routes": "./src/routes"
       },
       shared: {
