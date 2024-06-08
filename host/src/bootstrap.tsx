@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { routes } from "remote/routes";
+import { routeManifest } from "./routeManifest";
 import { Layout } from "./Layout";
 
 const router = createBrowserRouter(
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
       v7_normalizeFormMethod: true
     },
     unstable_patchRoutesOnMiss(_path, _matches, patch) {
-      patch("root", routes);
+      patch("root", routeManifest);
     }
   }
 );

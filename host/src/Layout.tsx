@@ -5,10 +5,15 @@ export function Layout() {
     <div style={{ display: "flex" }}>
       <div style={{ height: "100%", width: "10rem" }}>
         <ul>
-          <Link to="/">Home</Link>
-        </ul>
-        <ul>
-          <Link to="/remote">Remote 1</Link>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/remote">Remote 1</Link>
+          </li>
+          <li>
+            <Link to="/remote-two">Remote-Two</Link>
+          </li>
         </ul>
       </div>
       <Outlet />

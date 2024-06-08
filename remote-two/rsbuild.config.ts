@@ -5,18 +5,17 @@ import { dependencies } from "./package.json";
 export default defineConfig({
   plugins: [pluginReact()],
   server: {
-    port: 3000
+    port: 3002
   },
   moduleFederation: {
     options: {
-      name: "host",
-      remotes: {
-        remote: "remote@http://localhost:3001/remoteEntry.js",
-        remotetwo: "remotetwo@http://localhost:3002/remoteEntry.js"
+      name: "remotetwo",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./routes": "./src/routes"
       },
       shared: {
         ...dependencies,
-
         react: {
           singleton: true,
           requiredVersion: dependencies.react
