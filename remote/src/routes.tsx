@@ -1,13 +1,20 @@
-import { Route, RouteObject, json } from "react-router-dom";
+import { RouteObject, json } from "react-router-dom";
+const ErrorComponent = () => {
+  return (
+    <div>Something Broke In Remote, whoops</div>
+  )
+}
 
 export const routes: RouteObject[] = [
   {
-    path: "/remote",
+    path: "remote",
     loader: () => {
       return json({ data: "some data" });
     },
+    errorElement: <ErrorComponent />,
+
     lazy: async () => {
-      return { Component: (await import("./App")).default };
+      return { Component: (await import("./App")).default, };
     },
     children: [
       {

@@ -9,10 +9,13 @@ export function Layout() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/remote">Remote 1</Link>
+            <Link to="/remote">Remote</Link>
           </li>
           <li>
-            <Link to="/remote-two">Remote-Two</Link>
+            <Link to="/remote-two">Anothe Remote</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
           </li>
         </ul>
       </div>
@@ -20,3 +23,4 @@ export function Layout() {
     </div>
   );
 }
+

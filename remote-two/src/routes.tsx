@@ -2,7 +2,7 @@ import { RouteObject, json } from "react-router-dom";
 
 export const routes: RouteObject[] = [
   {
-    path: "/remote-two",
+    path: "remote-two",
     loader: () => {
       return json({ data: "some data" });
     },

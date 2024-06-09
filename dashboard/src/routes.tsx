@@ -1,4 +1,4 @@
-import { Route, RouteObject, json } from "react-router-dom";
+import { RouteObject, json } from "react-router-dom";
 
 export const routes: RouteObject[] = [
   {

@@ -1,5 +1,8 @@
+import { useLoaderData } from "react-router-dom";
 
 const App = () => {
+  const data = useLoaderData();
+  console.log(data);
   return (
     <div className="content">
       <h1>Rsbuild with React</h1>
