@@ -1,25 +1,18 @@
-import { Route, RouteObject, json } from "react-router-dom";
+import type { RouteObject } from "react-router-dom";
 
 export const routes: RouteObject[] = [
   {
     path: "/remote",
-    loader: () => {
-      return json({ data: "some data" });
-    },
-    lazy: async () => {
-      return { Component: (await import("./App")).default };
-    },
+    lazy: () => import("./routes/remote"),
     children: [
       {
         index: true,
-        lazy: async () => ({
-          Component: (await import("./routes/index")).default
-        })
+        lazy: () => import("./routes/remote.index"),
       },
       {
         path: "nested-remote-link",
-        lazy: async () => ({ Component: (await import("./NestedApp")).default })
-      }
-    ]
-  }
+        lazy: () => import("./routes/remote.nested-remote-link"),
+      },
+    ],
+  },
 ];

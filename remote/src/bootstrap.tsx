@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import * as rootRoute from "./root";
+import * as rootRoute from "host/root";
+
+import { routes } from "./routes";
 
 const router = createBrowserRouter(
   [
@@ -13,21 +15,15 @@ const router = createBrowserRouter(
         {
           id: "home",
           index: true,
-          lazy: () => import("./routes/home"),
+          lazy: () => import("host/routes/home"),
         },
+        ...routes,
       ],
     },
   ],
   {
     future: {
       v7_normalizeFormMethod: true,
-    },
-    async unstable_patchRoutesOnMiss(path, _matches, patch) {
-      if (path.startsWith("/remote")) {
-        const { routes } = await import("remote/routes");
-        patch("root", routes);
-      }
-      // TODO: Add more remotes here
     },
   }
 );
